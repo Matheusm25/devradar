@@ -8,7 +8,7 @@ module.exports = {
     const { github_username, techs, latitude, longitude } = request.body;
 
     let dev = await Dev.findOne({ github_username });
-    console.log(dev);
+    
     if (!dev) {
       const apiResponse = await axios.get(`https://api.github.com/users/${github_username}`);
       const { avatar_url, name = login, bio } = apiResponse.data;
